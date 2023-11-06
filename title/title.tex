@@ -22,7 +22,12 @@
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 \makeatletter
-{ \huge \bfseries \thesistitle}\\[1.5cm] % Title of your document
+\ifdefined\thesissubtitle
+{ \huge \bfseries \thesistitle}\\ % Title of your document
+\thesissubtitle\\[1.5cm]
+\else
+{\huge \bfseries \thesistitle}\\[1.5cm]
+\fi
  
 
 %----------------------------------------------------------------------------------------
