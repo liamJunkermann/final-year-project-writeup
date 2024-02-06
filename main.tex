@@ -43,7 +43,8 @@
 \usepackage[english]{babel}
 
 %% Bibliographical stuff
-\usepackage[]{cite}
+% \usepackage[]{cite}
+\usepackage[backend=biber,style=ieee,maxcitenames=2,mincitenames=1]{biblatex}
 %% Document size
 % include showframe as an option if you want to see the boxes
 \usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
@@ -86,13 +87,14 @@
 %% It is good practise to make your font sans-serif to improve the accessibility of your document.  Comment out the following line to disable it (but you really should not)
 \renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
 
+\newcommand{\maxHR}{$\textnormal{HR}_{\text{max}}$}
 %% If you insist on not using sans-serif (please don't), consider using Palatino instead of the LaTeX standard
 %\usepackage{mathpazo} % Use the Palatino font by default if you prefer it to Computer Modern
 
 
 %% Format Chapter headings appropriately
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{\normalfont\huge\bfseries\color{tcd_blue}}{\thechapter}{1cm}{}{}
+% \titleformat{\chapter}[hang]{\normalfont\huge\bfseries\color{tcd_blue}}{\thechapter}{1cm}{}{}
 
 \title{\thesistitle}
 \author{\authorname}
@@ -110,11 +112,12 @@
 }
 
 
+\addbibresource{bibs/my.bib}
 \frontmatter
 \begin{document}
 \input{title/title.tex}
 \pagenumbering{roman}
-\section*{\Huge\textcolor{tcd_blue}{Declaration}}
+\section*{\Huge{Declaration}}
 \vspace{1cm}
 I hereby declare that this \typeofthesis\ is entirely my own work and that it has not been submitted as an exercise for a degree at this or any other university.
 
@@ -148,7 +151,7 @@ This must be on a separate page.
 \newpage
 \onehalfspacing\raggedright %\raggedright turns off justification and hyphenation
 
-\section*{\Huge\textcolor{tcd_blue}{Acknowledgements}}
+\section*{\Huge{Acknowledgements}}
 Thanks Everyone!
 
 You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.
@@ -156,29 +159,39 @@ You should acknowledge any help that you have received (for example from technic
 \listoffigures
 \listoftables
 \newpage
-\section*{\Huge\textcolor{tcd_blue}{Nomenclature}}
+\section*{\Huge{Vocabulary}}
 \begin{tabular}{lp{9cm}l}
-A&Area of the wing&$m^{2}$\\
-B\\
-C& Roman letters first, with capitals\ldots\\
-a&then lower case.\\
-b\\
-c\\
-$\Gamma$&Followed by Greek capitals\ldots\\
-$\alpha$&then lower case greek symbols.\\
-$\beta$\\
-$\epsilon$\\
-TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
+  \textbf{Heart Rate Metrics} \\
+  HRV & Heart Rate Variablity \\
+  HR & Heart Rate \\
+  $\textnormal{HR}_{\text{max}}$ & Maximum Heart Rate \\
+  \textbf{Training Zones} \\
+  UT2 & Basic Oxygen Utilisation Training \\
+  UT1 & Oxygen Utilization Training \\
+  AT & Anaerobic Threshold Training \\
+  TR & Oxygen Transport Training \\
+  AN & Anaerobic Capacity Training \\
+% A&Area of the wing&$m^{2}$\\
+% B\\
+% C& Roman letters first, with capitals\ldots\\
+% a&then lower case.\\
+% b\\
+% c\\
+% $\Gamma$&Followed by Greek capitals\ldots\\
+% $\alpha$&then lower case greek symbols.\\
+% $\beta$\\
+% $\epsilon$\\
+% TLA&Finally, three letter acronyms and other abbreviations arranged alphabetically\\
 \end{tabular}
 \vspace{2cm}
 
-If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
+% If a parameter has a typical unit that is used throughout your report, then it should be included here on the right hand side.
 
-If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
+% If you have a very mathematical report, then you may wish to divide the nomenclature list into functions and variables, and then sub- and super-scripts.
 
-If you have a large number of acronyms, check out \href{https://www.overleaf.com/learn/latex/Glossaries} to make that more robust.
+% If you have a large number of acronyms, check out \href{https://www.overleaf.com/learn/latex/Glossaries} to make that more robust.
 
-Note that Roman mathematical symbols are typically in a serif font in italics.
+% Note that Roman mathematical symbols are typically in a serif font in italics.
 
 \mainmatter
 % maintaining separate .tex files for each chapter is good practice
@@ -189,10 +202,10 @@ Note that Roman mathematical symbols are typically in a serif font in italics.
 \input{conclusion/conclusion.tex}
 
 % note that your supervisor may have a strong opinion on the style of referencing you use. Some background is available at https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
-\bibliographystyle{ieeetr} %Changed to IEEETran by HS
+% \bibliographystyle{ieeetr} %Changed to IEEETran by HS
 %\bibliographystyle{unsrt}
 
-\bibliography{bibs/my}
+\printbibliography
 \appendix
 \renewcommand{\thechapter}{A\arabic{chapter}}
 \input{appendix/appendix.tex}
