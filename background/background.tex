@@ -1,12 +1,12 @@
 \chapter{Background}
 \label{Chapt2}
-This chapter will cover the basic background of rowing, the sports science which guides rowing training, ad how an athletes body responds to training stimulus. Next, a review of performance modelling will explore the development of human performance modelling since the introduction of the basic Bannister model in 1975 \autocite{Bannister1976}. The section will outline how training load and performance can be quantified, and explain the way these approximations are used in various performance models to date.
+This chapter will cover the basic background of rowing, the sports science which guides rowing training, and how an athletes body responds to training stimulus. Next, a review of performance modelling will explore the development of human performance modelling since the introduction of the basic Bannister model in 1975 \autocite{Bannister1976}. The section will outline how training load and performance can be quantified, and explain the way these approximations are used in various performance models to date.
 
 \section{A brief introduction to rowing}
 Rowing is an Olympic sport, raced across a 2,000 metre course, typically lasting six to seven minutes. It is classed as a power-endurance sport, this means training is focused on building aerobic, anerobic, and power while also developing rowing technique \autocite{Mäestu2005}. Most time is spent building endurance, next most time is spent building anerobic capacity, finally building strength and power through Strength and Condition sessions \autocite{Seiler2006}. The importance of power is more significant in rowing than in cycling given the relatively short duration of exertions, with longer distance racing typically only covering five to seven kilometers, or fifteen to twenty-five minutes. Road cycling, for example, tends to last for a longer period of time, where the shortest races might last two hours. There are many different approaches to how training is conducted and which energy systems are targeted. This section will discuss the basic training principles which guide training, the way athletes respond to different kinds of training loads, and how performance is evaulated in rowing. 
 
 \subsection{Training Principles} \label{sub:training_principles}
-Generally when a coach builds a training plan they have a few factors they can work with: volume, the amount of mileage or total time spent training, sessions intensity, how hard the given session is meant to be, and finally the frequency, or the time spent in different intensity zones. There are various ways to measure intensity, including heart rate, blood lactate concentration, velocity at maximal oxygen uptake (VO2 max), and rate of perceived exertion (RPE) \autocite{Rosenblat2019}. Rowers tend to use heart rate zones or blood lactate concentration depending on access to the equipment to test blood lacate. Typically when a rower uses calculated aerobic zones each zone will be a percentage of \maxHR. Typically these zones are typically defined as follows:
+Generally when a coach builds a training plan they have a few factors they can work with: volume, the amount of mileage or total time spent training, sessions intensity, how hard the given session is meant to be, and finally the frequency, or the time spent in different intensity zones. There are various ways to measure intensity, including heart rate, blood lactate concentration, velocity at maximal oxygen uptake (VO2 max), and rate of perceived exertion (RPE) \autocite{Rosenblat2019}. Rowers tend to use heart rate zones or blood lactate concentration depending on access to the equipment to test blood lacate. Typically when a rower uses calculated aerobic zones each zone will be a percentage of \maxHR. Following this approach, zones are defined as follows:
 \begin{description}
   \item[Z1] "Very Light" intensity, 50\% - 60\% of \maxHR
   \item[Z2] "Light" intensity, 60\%-70\% of \maxHR
@@ -14,7 +14,7 @@ Generally when a coach builds a training plan they have a few factors they can w
   \item[Z4] "Hard" intensity, 80\%-90\% of \maxHR
   \item[Z5] "Maximum" intesity, 90\%-100\% of \maxHR
 \end{description}
-The exact definition of these zones varies in the literature, as does the method to determine \maxHR. However, most high level athletes will have completed some kind of stress test to determine their \maxHR in order to train more effectively on their prescribed zones.
+The exact definition of these zones varies in the literature, as does the method to calculate \maxHR without a specific test. However, most high level athletes will have completed some kind of stress test to determine their \maxHR in order to train more effectively on their prescribed zones.
 A rower who uses lactate based training zones might use the following zones:
 \begin{description}
   \item[T1]  basic oxygen utilization training (UT2) [lactate~=~0-2 mmol/L]
@@ -76,25 +76,41 @@ There are two primary ways to measure a performance in rowing. First, on the row
 Rowing training is quite time consuming for athletes. Many rowers will learn much of what has been discussed in this section to make better decisions themselves, or understand why training is done in a given way. The focus for a majority of the training cycle is to build a strong aerobic base in order to allow for higher "peak", ideally coinciding with the peak event for a season of training. For international athletes this will be a yearly cycle targetting World Championships, which is part of a four-yearly cycle targetting the Olympics. For national level athletes, national championships are typically the target, with Henley Royal Regatta featuring as a seasons target. Coaches will normally take into account season targets and rower proficiency and base fitness when generating training plans. The target of this project is to make it easier for coaches and more accessible for more independent athletes. 
 
 \section{A Review of Performance Modelling}
-A review of models that already exist, including history of modelling, starting with \textcite{Bannister1976}, and including \textcite{Edelmannnusser2002} and their comments on the efficacy of a linear systems model on an inherently non-linear biological behaviour. Essentially go through the steps done by Churchill (2014) \autocite{Churchill2014}.
+The first wide spread approach to modelling performance was developed by \textcite{Bannister1976} with the Banister Fitness - Fatigue model, and further refined by \textcite{Morton1990} when defining training impulse to determine fitness and fatigue. The use of machine learning, specifically artifical neural networks has since been introduced in approaches to model performance. In preparation for the 2000 Olympics in Sydney \textcite{Edelmannnusser2002} successfully predicted olympic performances within an error of 0.05 seconds across a total time of 2:12.64 (min:sec) for the 200m backstroke event. \textcite{Edelmannnusser2002} specifically consider the limitation of using a linear model, such as the model proposed by \textcite{Bannister1976}, on training adaptation and performance; adaptation to training is inherently a complex non-linear process. 
+
+This chapter will review basic approaches to systems modelling, exploring metrics which are commonly used to guide models and some non-linear systems models which have been explored.
 
 \subsection{Quantifying Training Load (Fatigue)}
-\subsubsection{Rate of Perceived Exertion (RPE)}
-Rate of perceived exertion (RPE) is a scale, originally introduced by Gunnar Borg, to measure an athletes effort. The original scale ranged from 6-20, where 6 would be no exertion at all, and 20 is maximal effort. This scale ranges from 6-20 to correspond more easily with heart rate, as the scale is used beyond just athletic settings. Therefore another scale, ranging from 0-10, was developed by Borg as well for use with "extreme intensity of activity", this is the scale normally used in athletic studies. The second scale is called a Category-Ratio (CR) scale where the reference anchor is RPE CR10 of 10, meaning maximal effort/pain. Session RPE (sRPE), using CR10, can be used, in conjunction with duration to determine session load.
+\subsubsection{Rate of Perceived Exertion (RPE)} \label{subsub:rpe}
+Rate of perceived exertion (RPE) is a scale, originally introduced by Gunnar Borg, to measure an athletes effort. The original scale ranged from 6-20, where 6 would be no exertion at all, and 20 is maximal effort. This scale ranges from 6-20 to correspond more easily with heart rate, as the scale is used beyond just athletic settings. Therefore another scale, ranging from 0-10, was developed by Borg as well for use with "extreme intensity of activity", this is the scale normally used in athletic studies. The second scale is called a Category-Ratio (CR) scale where the reference anchor is RPE CR10 of 10, meaning maximal effort/pain. Session RPE (sRPE), using CR10, can be used, in conjunction with duration to determine session load \cite{Williams2017}.
 
-\textbf{todo: add scales as figures here}
+\begin{figure}[!h]
+  \begin{minipage}[c]{0.4\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/borg20.png}
+      \captionsetup{justification=centering}
+      \caption[Borg 20]{The original Borg 6-20 RPE Scale \cite{Williams2017}} \label{fig:borg20}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.4\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/borgc10.png}
+      \captionsetup{justification=centering}
+      \caption[Borg CR10]{The Borg Category-Ratio 10 RPE Scale \cite{Williams2017}}\label{fig:borgcr10}
+  \end{minipage}
+  \caption*{The two Borg RPE scales}
+\end{figure}
 
-\subsubsection{TRIMP}
+\subsubsection{Training Impulse (TRIMP)}
 Training Impulse (TRIMP) is a method to calculate training load and is defined as  $\textnormal{TRIMP} = \textnormal{Training Volume} \times \textnormal{Training Intensity}$ \autocite{TRIMPmethod}. There are many methods to calculate TRIMP, using different metrics to calculate training volume and training intensity. For the purposes of this project volume will simply be minutes, and intensity will be average heart rate (bpm), as the simplest TRIMP method outlined. Other modifications of may apply a weighting against a heart rate metric to normalise longer sessions completed at a lower heart rate -- considering the noted difference in heart rate responses to training in male and female athletes \autocite{Morton1990}, alternatively load can be calculated by using the product of RPE and duration (ie. $\textnormal{RPE} \times \textnormal{Duration (minutes)}$) .
 
 \subsubsection{Acute Chronic Workload Ratio (ACWR)}
+Acute Chronic Workload Ratio (ACWR) can be used to monitor load in an athlete. It compares training load accumulated, in arbitrary units (AU), over the last seven days (acute workload) to the training load accumulated over the last twenty-eight days (chronic workload). The exact calculations used to determine acute and chronic workload depends on what type of ACWR model is selected. Additionally, the exact time periods considered for acute and chronic load can change depending on the application \cite{White2023}. Typically ACWR is used for injury management in team sports, but some articles have found it may not be effective for preventing injury as it is inaccurate way of approximating load \cite{Impellizzeri2020}. Regardless of it's effectiveness in reducing injury, ACWR charts are easy to produce and provide easy feedback to rowers to see how their training load can change week-to-week.
 
+\subsection{Impulse-Response Models} 
+\subsubsection{Banister Fitness-Fatigue Model}
 
-\subsection{Quantifying Performance}
-erg score, otw results, telemetry
-
-\subsection{Impulse-Response Models}
 \subsubsection{Limitations to the Impulse-Response Model}
 
 \subsection{Alternative Models}
-Artifcial Neural Network (ANN) approaches. 
+\subsubsection{Performance Potential (PerPot)}
+\subsubsection{Artificial Neural Network (ANN) approaches}
