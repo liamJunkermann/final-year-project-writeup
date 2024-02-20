@@ -111,53 +111,22 @@
    }
 }
 
+% \includeonly{title/title,background/background}
 
 \addbibresource{bibs/my.bib}
 \frontmatter
 \begin{document}
-\input{title/title.tex}
+\include{title/title.tex}
 \pagenumbering{roman}
-\section*{\Huge{Declaration}}
-\vspace{1cm}
-I hereby declare that this \typeofthesis\ is entirely my own work and that it has not been submitted as an exercise for a degree at this or any other university.
 
-\vspace{1cm}
-I have read and I understand the plagiarism provisions in the General Regulations of the University Calendar for the current year, found at \url{http://www.tcd.ie/calendar}.
-\vspace{1cm}
+\include{preamble/declaration}
 
-I have completed the Online Tutorial on avoiding plagiarism `Ready Steady Write', located at \url{http://tcd-ie.libguides.com/plagiarism/ready-steady-write}.
-\vspace{1cm}
+\include{preamble/abstract}
+\include{preamble/acknowledgements}
 
-I consent / do not consent to the examiner retaining a copy of the thesis beyond the examining period, should they so wish (EU GDPR May 2018).
-\vspace{1cm}
-
-% I agree that this thesis will not be publicly available, but will be available to TCD staff and students in the University’s open access institutional repository on the Trinity domain only, subject to Irish Copyright Legislation and Trinity College Library conditions of use and acknowledgement.  \textbf{Please consult with your supervisor on this last item before agreeing, and delete if you do not consent}
-% \vspace{3cm}
-
-Signed:~\rule{5cm}{0.3pt}\hfill Date:~\rule{5cm}{0.3pt}
-
-\chapter*{Abstract}
-A short summary of the problem investigated, the approach taken and the key findings. This should not be more that around 400 words.
-
-
-This must be on a separate page.
-
-\chapter*{Lay Abstract}
-Similar to the actual abstract in terms of the information, but written for a non-specialist. So no jargon, no acronyms. Explain to a member of the general public what this project entailed. Should be no longer than the actual abstract.
-
-
-This must be on a separate page.
-
-\newpage
-\onehalfspacing\raggedright %\raggedright turns off justification and hyphenation
-
-\section*{\Huge{Acknowledgements}}
-Thanks Everyone!
-
-You should acknowledge any help that you have received (for example from technical staff), or input provided by, for example, a company.
 \tableofcontents
 \listoffigures
-\listoftables
+% \listoftables
 \newpage
 \section*{\Huge{Vocabulary}}
 \begin{tabular}{lp{9cm}l}
@@ -199,11 +168,11 @@ You should acknowledge any help that you have received (for example from technic
 
 \mainmatter
 % maintaining separate .tex files for each chapter is good practice
-\input{introduction/introduction.tex}
-\input{background/background.tex}
-\input{project/project.tex}
-\input{evaluation/evaluation.tex}
-\input{conclusion/conclusion.tex}
+\include{introduction/introduction.tex}
+\include{background/background.tex}
+\include{project/project.tex}
+\include{evaluation/evaluation.tex}
+\include{conclusion/conclusion.tex}
 
 % note that your supervisor may have a strong opinion on the style of referencing you use. Some background is available at https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
 % \bibliographystyle{ieeetr} %Changed to IEEETran by HS
@@ -212,7 +181,7 @@ You should acknowledge any help that you have received (for example from technic
 \printbibliography
 \appendix
 \renewcommand{\thechapter}{A\arabic{chapter}}
-\input{appendix/appendix.tex}
+\include{appendix/appendix.tex}
 
 
 \end{document}
