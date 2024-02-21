@@ -1,5 +1,5 @@
 \chapter{Background}
-\label{Chapt2}
+\label{chap:background}
 This chapter will cover the basic background of rowing, the sports science which guides rowing training, and how an athletes body responds to training stimulus. Next, a review of performance modelling will explore the development of human performance modelling since the introduction of the basic Bannister model in 1975 \autocite{Bannister1976}. The section will outline how training load and performance can be quantified, and explain the way these approximations are used in various performance models to date.
 
 \section{A brief introduction to rowing}
@@ -25,7 +25,7 @@ A rower who uses lactate based training zones might use the following zones:
 \end{description}
 Depending on how rigorous the testing protocol was, Heart Rate zones may be calculated for each zone, these may vary from the aerobic zones calculated from \maxHR.
 
-\subsubsection{Blood Lactate}
+\subsubsection{Blood Lactate - A brief description}
 Lactate is constantly produced by the body during the day. The concentration of blood lactate, measured in millimoles per litre (mmol/L), does not increase until the rate of lactate production surpasses the rate of lactate removal. Many things can affect the rate of lactate removal, training can improve the rate of lactate removal, with certain sessions targetting that adaptation. Blood lactate acts a biomarker used regularly to determine muscular fatigue during exercise. During a exercise lactate test a lactate profile is generated. Below is a chart showing two lactate profiles generated during two lactate tests about 14 weeks apart (98 days) in January and May of 2023. The test conducted saw the rower complete seven, four minute, efforts, at prescribed wattage targets. Details of each set of intervals can be found in \ref{sec:app-lactate-results}.
 \begin{figure}
   \centering
@@ -82,6 +82,7 @@ Rowers develop both their anaerobic and aerobic systems. Much of the winter seas
 
 \subsubsection{Tapering}
 
+
 \subsection{Performance}
 There are two primary ways to measure a performance in rowing. First, on the rowing machine, a 2,000 meter, 6,000 meter, or 30 minute at stroke rate 20 (30 r20) test is normally used, depending on when during the season the test is done. This can be used to determine a rowers fitness and can be used to track progress for an athlete. These sessions are typically maximum effort sessions with some degree of taper (typically 4-7 days maximum) to illicit a peak performance. On the water, times can also be used to judge an entire crew, with external factors like wind direction and intensity, current flow, and temprature considered. Some boats and squads may use on the water telemetry to quantify the impact and power output of each rower. On the water performances may not always be peak efforts depending on a squads seasonal focus or an event's progression (eg. a maximal effort will rarely make an appearance in the heat stage of a heat-semi-final progression). Ergometer scores tend to be considered as the purest way of quantifying rowers performance, however a combination of approaches can be used to quantify on the water performance.
 
@@ -97,7 +98,7 @@ This section will review basic approaches to systems modelling, exploring metric
 \subsubsection{Rate of Perceived Exertion (RPE)} \label{subsub:rpe}
 Rate of perceived exertion (RPE) is a scale, originally introduced by Gunnar Borg, to measure an athletes effort. The original scale ranged from 6-20, where 6 would be no exertion at all, and 20 is maximal effort. This scale ranges from 6-20 to correspond more easily with heart rate, as the scale is used beyond just athletic settings. Therefore another scale, ranging from 0-10, was developed by Borg as well for use with "extreme intensity of activity", this is the scale normally used in athletic studies. The second scale is called a Category-Ratio (CR) scale where the reference anchor is RPE CR10 of 10, meaning maximal effort/pain. Session RPE (sRPE), using CR10, can be used, in conjunction with duration to determine session load \cite{Williams2017}.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \begin{minipage}[c]{0.4\linewidth}
       \centering
       \includegraphics[width=\linewidth]{figures/borg20.png}
@@ -152,7 +153,7 @@ where each function states the fitness and fatigue at the end of day $t$, $i$ is
 The model was originally developed using a swimmer and when evaluted, using linear regression for the athlete specific parameters ($\tau_1$, $\tau_2$, $k_1$, and $k_2$). The model reasonably estimates the performance outcome of a swimmer with relative confidence, no $r^2$ value is provided in the literature \cite{Bannister1976}. In the 1990 model from \textcite{Morton1990}, two of the researchers participated in a training and testing regimen and a "good degree of fit" was observed. Versions of this kind of Impulse-Response model are used in basic analysis across many consumer fitness apps today, such as Training Peaks and Strava.
 
 \subsubsection{Limitations to the Impulse-Response Model}
-
+Constantly need to update parameters with "criterions" (aka do lots of testing), doing lots of testing takes away from training (as described above), in order to get a peak performance a taper occurs.
 
 \subsection{Alternative Models}
 \subsubsection{Performance Potential (PerPot)}
