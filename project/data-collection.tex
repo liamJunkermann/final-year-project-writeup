@@ -19,9 +19,9 @@ When developing the data collection pipeline, some key considerations were made.
 
 Considering the minimum requirements for a successful data collection pipeline, a website was developed to manage data provider connections and view training feedback. This website worked in conjunction with a series of serverless functions to automatically collect and analyse user sessions, and generate the feedback which was presented in the website.
 
-\subsection{The Frontend}
+\subsection{The frontend}
 The website was developed using Next.js, a React framework for building server-side rendered websites, it was developed using Typescript, which is a statically typed superset of JavaScript. This allowed for type checking and better code quality and made it easier to develop and maintain the backend. It was designed to be simple and easy to use, with a focus on the user experience. This meant that a mobile-first approach to design was needed, as many users would be accessing the website from their mobile devices, it also needed to be fast and lightweight meaning many of the data-heavy components of the web app are rendered with server-side components to reduce the client-side workload ensuring a smooth and consistent app experience. The web app is also fairly basic, including only three screens once logged in.
-\subsubsection{Login and Register}
+\subsubsection{Login and register}
 
 \begin{figure}[htbp]
   \centering
@@ -47,7 +47,7 @@ When users first navigate to the website, they are greeted with either the login
 
 Once logged in, users are greeted with a dashboard screen (\autoref{fig:webapp_dashboard}). This screen gives a summary of training in the last seven days, as well as some visualisations across a selected time period of the user's choice. At a glance, athletes are able to identify if they are training sustainably, and compare, week-to-week, their mileage and modality break-down. Managing training load is particularly important for rowers as overtraining has even greater knock-on effects in other aspects of a rower's life, like work or college. 
 
-\subsubsection{Training Log}
+\subsubsection{Training log}
 
 \begin{figure}[htbp]
   \centering
@@ -57,7 +57,7 @@ Once logged in, users are greeted with a dashboard screen (\autoref{fig:webapp_d
 \end{figure}
 The training log (\autoref{fig:webapp_training_log}) provides a detailed view of all the sessions a rower has completed. This project did not require athletes to provide additional feedback for sessions, however, this page would host a form to allow athletes to add sessions and session feedback in a more developed version of the web app, this will be discussed more in the Discussion, \autoref{chap:discussion}. The user can also click on a session to view more detailed information about that session, including heart rate data, GPS data, and any other data collected during the session. 
 
-\subsubsection{Connections Manager}
+\subsubsection{Connections manager}
 
 \begin{figure}[htbp]
   \centering
@@ -67,23 +67,23 @@ The training log (\autoref{fig:webapp_training_log}) provides a detailed view of
 \end{figure}
 The final screen in the app is the settings page (\autoref{fig:webapp_connection_mgr}), which is home to the connections manager. Here users can see which data providers they have connected. This page is where the most user interaction happened throughout the project. Given the goal of minimal user intervention and maintenance, when logging in for the first time they were directed to this page to connect their rowing data providers, and using the OAuth protocol, shared the necessary keys with the project to allow data to flow automatically in the backend.  
 
-\subsection{The Backend}
+\subsection{The backend}
 The backend services were crucial to developing a system that required minimal user and maintainer intervention. The backend was developed using serverless functions, which are small, single-purpose functions that are run in response to events. These functions were used to collect data from the user's data providers, analyse the data, and generate feedback for the user. The backend was developed using the Serverless framework, which is a framework for building serverless applications. The backend was hosted on AWS and used a combination of AWS Lambda, AWS API Gateway, AWS DynamoDB, and AWS S3 to provide the serverless functions and store the data. The backend functions were primarily built using Node.js and Typescript. This section will only discuss the data collection and management functions. Analysis functions will be discussed in the Data Analysis and Visualisation chapter, \autoref{chap:data-analysis-viz}.
 
 There are 4 major functions, which were separated into serverless functions to manage and handle data. These functions are the Provider Connection, Provider Webhooks, Data Ingestor, and Data Processor. Each of these functions is responsible for a different part of the data collection and management process.
 
 The general web app backend was mostly handled by AWS Amplify. This service made it possible for the researcher to focus on providing valuable features to users, rather than spending extra time developing boilerplate authentication and database interactions. The Amplify service also provided a GraphQL API, which was used to interact with the DynamoDB database, and provided a simple way to interact with the database from the frontend in a secure way.
 
-\subsubsection{Provider Connection}
+\subsubsection{Provider connection}
 When connecting to a service using the OAuth protocol, the user is redirected to the service's login page, where they log in and authorise the project to access their data. Once the user has authorised the project, the service redirects the user back to the project's website and provides an access token that can be used to access the user's data. This access token is then stored in the database and is used to access the user's data in the future. This function is responsible for handling the OAuth flow and storing the access token in the database. The provider connection function handles the various data formats which different providers use, and connects access and refresh tokens to the users for use later on in the pipeline when activities are generated. This particular function was built as part of the Next.js server, leveraging the server-side rendering capabilities of the framework to handle authentication of users using cookies making the linking of tokens with users easier.
 
-\subsubsection{Provider Webhooks}
+\subsubsection{Provider webhooks}
 Typically when a user completes a workout, the data provider can query a webhook (if it has been set up), with a payload containing basic information about the workout, and in some cases, the details to retrieve the full session. For each of the supported data providers, Polar, Concept2, and Strava, webhooks were setup and registered with the providers. Webhooks were then handled through the Next.js server, retrieving any additional data needed. The full session data was then shared to the Data Ingestor function for processing and storage in the database. Different providers had different requirements for the webhook payload, and the data was stored in different formats, so the webhook function was responsible for handling these differences and normalising the data before sending it to the Data Ingestor function, while also limiting the unnecessary sharing of client secrets and keys across multiple services.
 
-\subsubsection{Data Ingestor}
+\subsubsection{Data ingestor}
 The data ingestor handled the actual storage of the data in the database. The data ingestor first validated any data provided. This was done by validating the provider user id and comparing a key which was shared with the Next.js server. Then it stored the raw session data, provided by the webhook handler in the Next.js server, in AWS S3, this meant that any issues with data processing could be rectified after the fact with the raw data available. Finally, the ingestor triggered the Data Processor function. This extra level of data processing before storing the data ensured that data ingested to the data pipeline was legitimate and provided through the proper channel. This function was a standalone serverless function, built using Node.js and Typescript, and deployed to AWS Lambda using the Serverless framework.
 
-\subsubsection{Data Processor}
+\subsubsection{Data processor}
 Given the variety of data and session types provided, a standard exercise model was needed to make analysis and machine learning easier. This standard exercise model will be discussed in more detail in the data cleaning section of the data analysis chapter (\ref{sec:data-cleaning}), with a schema introduced in the Data management section of this chapter (\ref{sec:data-mgmt}). The data processor function was responsible for taking the raw session data, and converting it into a standard format. The standard format included a sessions duration, distance, average heart rate (if applicable), time of completion, session type, and session modality. These features would be used to complete analysis and produce the weekly training summaries shown in the front end. This was also a standalone serverless function, built using Node.js and Typescript, and deployed to AWS Lambda using the Serverless framework.
 
 \section{\label{sec:data-mgmt}Data Management}
