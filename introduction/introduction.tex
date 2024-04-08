@@ -1,28 +1,11 @@
-\chapter{Introduction}
-This chapter will introduce the general approach and motivation for this project, the expected outcomes, and a structure for the remainder of the report.
+\chapter{\label{chap:intro}Introduction}
+This project explores the use of Machine Learning to model and predict rowing training outcomes and performances. Developing models for human performance is a complex and challenging task, with many factors influencing the outcome of a training session or cycle, and variety of factors can influence a performance when it matters. As early as 1975, linear models for performance were explored with reasonable success. Since then, many models have been developed to predict performance, with the most recent models using machine learning techniques to predict performance. This project aims to use some of the techniques developed to predict performance using rowing data. This chapter will introduce the general approach and motivation for this project, the expected outcomes, and a structure for the remainder of the report.
 
 \section{Motivations}
-What motivated this project. Interest in rowing, rowing background, sports science is cool, blah blah blah
+I love data, I love rowing, I want to use my data to row faster :)
+
 \section{Goals}
-Target: ML to go fast. Data collection piece, data analysis piece, final model target.
+There a number of steps to this project, with the main goal being to develop a model which can predict rowing performance. This will be done by collecting data from rowers, performing initial analysis on this data to help develop features for a model, and produce visualisations as feedback for participants. Finally, the goal was to use this data to train a model which can predict performance. 
 
 \section{The Report}
-How this reports structured, whats going to be covered.
-
-Background - covering intro to sports science for rowing, and terms used for data analysis and modelling. Models which are used atm, why they work well, or don't.
-
-Data Collection and management - Discussing how I collected data (made website and deployed bits, etc). How data was managed (s3 for raw data, dynamo \& rds for user generated/processed data).
-
-Data Analysis + visualization - I mean, it does what it says on the box
-Machine Learning Applications - what was the goal, considerations for the model, what'd we actually make
-
-Discussion - Did we actually do the thing, how can we improve what we did, what stopped us from building the whole thing
-
-Conclusion - uhm, some waffle to tie it all together
-
-% \section{Contents of the Introduction} 
-% The introduction presents the nature of the problem under consideration, the context of the problem to the wider field and the scope of the project. The objectives of the project should be clearly stated.
-% \section{Contents of the background chapter}	
-% The second chapter is typically a literature review, or survey of the state of the art, or a detailed assessment of the context and background for the project. The exact nature of this chapter depends on the topic and/or methods of the project. It is essential that the work of other people is properly cited. This will be discussed in detail in Chapter \ref{chap:background} below. Note that you should use references wherever is appropriate through the report, not just in the literature review chapter.
-% \section{The Conclusions chapter} 
-% The final chapter should give a short summary of the key methods, results and findings in your project. You should also briefly identify what, if any, future work might be executed to resolve unanswered questions or to advance the study beyond the scope that you identified in Chapter 1. 
+The report will begin in \autoref{chap:background} with a review of the literature on rowing training and performance and the use of machine learning in sports science. This will provide the sports science related knowledge necessary to understand the data collected and the approach used for analysis and model development. \autoref{chap:data-collect-mng} will discuss the approach used to collect and manage participant data, including the ethical considerations taken. Next, \autoref{chap:data-anyl-viz} will discuss the approach to developing a data analysis pipeline to provide particpants with feedback on their training data. This will cover steps taken to clean and standardise the incoming data, the general approach which guided analysis, and how visualisations were developed and deployed. \autoref{chap:ml} will discuss the machine learning approach taken. Unfortunately, due to limitations in data collection and time, the model was not able to be fully developed. However, the data collected and the initial analysis performed will be discussed in this report. The machine learning goals were adapted to explore an approach to predict injuries in rowers, which will be discussed in \autoref{chap:ml}. The report will conclude with a discussion of the results and potential future work in \autoref{chap:discussion}.
