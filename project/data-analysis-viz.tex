@@ -40,4 +40,25 @@ The most in-depth analysis performed was training impulse analysis. As described
 Each session with heart rate data available had a training impulse (\texttt{trimp}) value generated. This value could then be used to calculate acute and chronic workload, which in turn were used to calculate the acute chronic workload ratio (ACWR) a rower was experiencing. Presenting this analysis to rowers can indicate if they are at risk of injury by overtraining, as a result of increasing load, or undertraining for a period of time beyond a productive taper. This is a key metric for rowers to track and is a key part of the feedback provided to rowers in the application.
 
 \section{\label{sec:data-viz}Data Visualisation}
-The data visualisation built upon the analysis done, 
+The data visualisation built upon the analysis done, representing the outcomes of the analysis graphically making them easier to understand at-a-glance. To develop visualisations, Python was once again used in a Jupyter notebook, with the help of the matplotlib library to generate plots. The plots generated in the Jupyter notebook were then mostly ported to Typescript, using the Plotly.js library, to be used in the application. This section will discuss the approach used to generate visualisations for the project, how the analysis metrics discussed in the previous section were used and adapted, and the process for bringing visualisations to the frontend.
+
+\subsection{Visualisation Development Methods}
+As a result of the analysis steps taken, a set of pandas DataFrames were generated, these could be used to easily generate basic plots for visualisations. In isolation though, certain plots were not as useful as they could be. For example, a bar plot of daily training impulses is not particularly useful, especially given the arbitrary nature of the units it is measured in. A more useful plot may overlay acute workload, chronic workload, and ACWR lines plots to add some more useful context for a rower. This iterative approach of visually exploring the data, determining if a metric in isolation was useful, or finding a suitable pairing of metrics to plot together, was used to generate the visualisations for the project. Each plot generated was made into a function which including any data transformations necessary to generate the visualisation. These functions were then ported to Typescript to generate the graphs in the application, leveraging the Plotly.js library.
+
+\subsection{Visualisations Generated}
+\subsubsection{Acute, Chronic, TRIMP, ACWR Chart}
+The primary chart implemented on the frontend is the ACWR chart. The version shown in \autoref{fig:acwr}, is generated from the Jupyter notebook used to develop visualisations, using the researchers training data on April 7, 2024. This chart looks at a roughly 97 day period from January 1 to April 6, 2024. During this period the researcher recovered from an ankle sprain, and two periods of illness, accounting for gaps in training (trimp bars) and the erratic nature of the ACWR line.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/acwr.png}
+  \captionsetup{justification=centering}
+  \caption[ACWR Chart]{\label{fig:acwr}The Acute, Chronic, TRIMP, ACWR chart}
+\end{figure}
+This chart displays daily training impulse (arbitrary units), as bars, acute and chronic workload (arbitrary units), as low opacity lines (acute workload in blue, chronic workload in orange), and ACWR on a second axis (solid blue line). This chart is useful for rowers to track their training load over time and to ensure they are not at risk of injury from overtraining. The two red lines overlayed on the ACWR axis at 0.8 and 1.3 indicate the optimal training load range. 
+
+When implementing this chart in the frontend, a datepicker was added to allow users to explore how their training over different time periods was balanced. This resulted in a more interactive chart, allowing users to explore their training load over time. This chart was the most complex to implement, as it required the most data to be passed to the frontend, and given the multi axis nature of the data, it was impossible to create a generalised, reusable, graph component.  
+
+\subsubsection{Weekly mileage and duration comparison}
+\subsubsection{Modality and Zone Donuts}
+\subsubsection{Modality Duration and Distance Charts}
