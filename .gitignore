@@ -12,3 +12,4 @@
 *.fls
 *.run.xml
 .vscode/
+wc.sh
