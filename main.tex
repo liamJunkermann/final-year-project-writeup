@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,12pt]{book}
+\documentclass[english,a4paper,oneside,12pt]{book}
 
 %----------------------------------------------------------------------------------------
 %	README!
@@ -68,11 +68,15 @@
 \usepackage{rotating,floatpag}
 \usepackage{wrapfig}
 \usepackage{pdfpages}
+\usepackage{datetime}
 
 \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
 \pagestyle{plain} % Embrace simplicity!
 
 \definecolor{tcd_blue}{RGB}{5, 105, 185}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
 
 %% It's personal taste but...
 %% Uncomment the following block if you want your name and ID at the top of
