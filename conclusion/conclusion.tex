@@ -1,2 +1,23 @@
 \chapter{Conclusion}
-Did we do what we set out to do.
+This chapter provides the conclusion of the project, with a review of objectives set out in \ref{ch:background}.
+
+
+\section{Objectives Completed}
+This project aimed to explore the use of machine learning to predict rowing training outcomes and performances. The project was largely successful in it's data collection and analysis goals, but was unable to develop a model to predict performance. This section will include a synopsis of the work completed, and a summary of future work which could be completed. 
+
+The project successfully collected data from rowers through a web application developed throughout the project. This application facilitated collection of data with no extra interaction needed from participants. In total 12 participants were onboarded to the platform with data collected from 8 participants. This discrepency is due to some participants becoming heavily injured or ill, or suffering other techincal issues resulting in being removed from the project. 
+
+After successfully developing a data collection pipeline, a data analysis pipeline was developed to provide participants with feedback on their training data. This produced a number of data analysis metrics, including training load, acute and chronic workloads, daily ACWR, time spent in zones for each session as well as on daily, weekly, and monthly intervals, and summaries of daily, weekly, and monthly training duration and mileage. Finally, data visualisations were first drafted, using matplotlib in Python, and then developed for the frontend using Typescript and Plotly.js. These visualisations were used to provide feedback to participants on their training data by presenting the analysis completed in a digestable format.
+
+While the project aimed to produce a model to predict performance, it became clear that this was an overly ambitious goal, due in part to the limited time for the project, and also the limited data collected as a result of the automatic data collection goals. Instead, the project explored the use of machine learning to predict injuries in runners, noting the approach and its application to appropriately collect rowing data.
+
+\textbf{TODO: finish this after completing ML methods + discussion}
+
+\section{Final Thoughts}
+There are a number of opportunities for future work as a result of this project, as described in \autoref{ch:discussion}. 
+
+The most immediate opportunity is to continue developing a data collection model which balances the need for minimal effort from athletes, with the need for endless data for machine learning training. Further work then be used to develop a machine learning model to predict injuries in rowers, which can build to producing performance models. Beyond machine learning, an exploration into how to leverage technology to support coaches in managing their athletes' training and recovery could be a valuable first step. Based on the volumes of potential data sources available in rowing, building a framework to collect and analyse data from these sources could provide a more comprehensive picture of an athletes performance and recovery.
+
+The potential to apply learnings from this project to other sports as applications is significant as well. Trying to build integrated recovery and training tracking for athletes alongside a team management and analysis can be used to help coaches and athletes understand the impact of training on performance and recovery at an individual level.
+
+To conclude, this project was largely successful in it's data collection and analysis goals, but was unable to develop a model to predict performance. This project also produced a number of learning opportunities which can be applied to future work to deliver more effective feedback to athletes and coaches across a number of disciplines.
