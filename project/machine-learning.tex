@@ -1,8 +1,25 @@
 \chapter{\label{ch:ml}Machine Learning Applications}
-What was the target, what did I actually make, maybe some results
+This chapter will discuss the machine learning approach taken in this project. First, a review of the data collected will be completed, this will outline the next steps taken. Next, the machine learning approach taken will be discussed, this will include an introduction to the adapted machine learning goal, identifying injury risks. This will be executed by replicating an approach developed for runners used by \textcite{Lovdal2021}, using the data provided by the literature.
 
-\section{Model Considerations}
-What led to the final model, difficulties, and data Considerations
+\section{Rowing Data and training Review}
+As discussed in \autoref{ch:data-collect-mng}, the data collected was limited to a small number of participants. This section will review the data collected, including the data sources used, the data collected, and the limitations of the data collected.
+\subsection{Review of Data Available}
+When the goals for the project were outlined, it was not clear what data was available, what data would be needed to produce a useful model, or how much data. In an attempt to have a larger set of data, the data collection system was built to require as little additional input from athletes as possible. As a result, the amount of context available for the data collected was limited. For example, session goals were not outlined, making it difficult to determine if a session was a hard session or an easy session. Additionally gaps in training data could be present as a result of injury, illness, or athlete vacations. There was no way of collecting this information to discard these portions of data, or account for gaps. Finally, most data was collected throughout the winter season. This part of a rowers yearly cycle is notorious for long periods of low intensity training, with very few options to test performance. No clear performance "criterion" were recorded, making it difficult to even determine if a model was successful in predicting performance.
 
-\section{The Implementation}
-Details about the model, including some examples of outputs (on my own data?)
+\subsection{Initial Machine Learning Plan}
+Based on existing performance prediction literature, and before it became clear building a performance model with the data available was not feasible, an initial plan was formed to develop a model to predict performance. First, existing models would be adapted to rowing and implemented using the data collected. This would begin with implementing the more basic Banister fitness-fatigue model using the process outlined in \textcite{Morton1990}. Then a more complex model, such as PerPot \cite{perl2001}, would be implemented and evaluated. These two implementations of performance models would then be used to evaluate the effectiveness of any machine learning based models developed.
+
+\subsection{Limitations of the Data and the Plan}
+When this plan was devised, despite the lack of data available, there was a tentative strategy to combat the relative lack of data. As noted by \textcite{Churchill2014}, who only had three participants, the use of a hybrid ensemble of neural networks was effective in managing the relative lack of data. \textcite{Edelmannnusser2002} was also able to predict with strong accuracy a swimming performance using data from a single athlete. This optimistic approach to managing a small dataset further proved to be too ambitious. The "relative lack of data" experienced by Churchill still contained 250, 870 and 1107 days of training data for each of the three participants. Meanwhile, \textcite{Edelmannnusser2002} had 95 weeks of data for a single athlete, including 19 competitive performances. The data collected for this project was significantly less than these examples, with only 8 participants actively providing data throughout the course of the data analysis stage, which only lasted about 3 months. While there were some erg tests completed during this period, some athletes were unable to complete these tests due to injury or illness, while other athletes did not log these efforts in detail, a limitation of the data collection system developed. Even if the data collection pipeline had been running for the full course of this project with the adjustments necessary to have a full set of features, not enough data would have been collected to develop a model to predict performance to any degree of accuracy.
+
+\section{Developing an Injury Classification Model}
+The limitations of the inital goal and plan described in the previous section resulted in a pivot to a new goal. Given the limitations of the data collected for training a machine learning model it became necessary to look for a dataset which could be used to develop a modelling approach which could be applied to rowing data. Fortunately, \textcite{Lovdal2021} explored the use of machine learning to predict injuries using binary classification, with the full dataset published alongside the paper. 
+
+This section will outline the steps taken to replicate the model, including the data used, the model iteration and development, the evaluation of the model, and a reflection on its potential applicability to rowing data.
+
+\subsection{Predicting Injury in Runners}
+\subsubsection{Data review}
+\subsubsection{Model Development}
+\subsubsection{Model Evaluation}
+
+\subsection{Applying the Model to Rowing Data}
