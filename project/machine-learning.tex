@@ -19,7 +19,15 @@ This section will outline the steps taken to replicate the model, including the 
 
 \subsection{Predicting Injury in Runners}
 \subsubsection{Data review}
+The data provided by \textcite{Lovdal2021} the training log of a high-performance Dutch running squad over the course of 7 years (2012-2019) containing 77 middle- and long-distance athletes. These athletes compete at distances between 800m and full marathon distances, the training for both disciplines is largely endurance focused so training programs are relatively the same. Furthermore, the training program remained the same as the team's head coach remained consistent throughout the 7 year period. The dataset has also been pre-cleaned. Injuries were flagged in the dataset by athletes being either unable to start or complete a session. These flags were then considered an injury event if an athlete was training injury-free for the previous 3 weeks. Healthy events were those where an athlete was fully fit 3 weeks before and 3 weeks after the event day. Events that contained missing or anomalous data were removed from the dataset. Recurring injury events, those occuring within 3 weeks of a previous injury event, were also removed from the dataset.
+
+This cleaning process resulted in a dataset containing 74 athletes, 42,183 healthy and 583 injury events for the day-to-day model, and 42,223 healthy and 575 injury events for the week-to-week model. The number of injuries per athlete ranges from 0 to 35.
+
+It is evident this data set is quite comprehensive, with detailed information about training behvaiours, and a clear definition of injury; this data set is ideal for developing a model to predict injury risk. Futhermore, with many of the same potential features as a complete rowing data set would contain, the approaches used to predict injury risk in this dataset could be applied to rowing data.
+
 \subsubsection{Model Development}
+
+
 \subsubsection{Model Evaluation}
 
 \subsection{Applying the Model to Rowing Data}
