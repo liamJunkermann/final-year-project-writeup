@@ -62,7 +62,7 @@
 \usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
 \usepackage{setspace} % to permit one-and-a-half or double spacing
 \usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
-\usepackage{booktabs} % To thicken table lines
+\usepackage{tabularx,booktabs} % To thicken table lines
 \usepackage{fancyhdr}
 \usepackage{xcolor} % to get TCD colour on headings
 \usepackage{rotating,floatpag}
@@ -70,6 +70,7 @@
 \usepackage{pdfpages}
 \usepackage{datetime}
 
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
 \pagestyle{plain} % Embrace simplicity!
 
