@@ -1,0 +1,108 @@
+\documentclass[english,a4paper,oneside,12pt]{book}
+
+%----------------------------------------------------------------------------------------
+%	README!
+%   Welcome. It's worth having a read through this file
+%   to set up the broad parameters, such as the name of
+%   the degree, the school/department, the type of work
+%   (dissertation/Final Year Project/report, etc. as well
+%   as your own details.
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	COVER PAGE
+%   The cover page is laid out in title/title.tex. You can choose a colour
+%   or black and white logo
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%   Put title, author name, supervisor name, degree, type of work, school, department in here
+%   It will be used for the title page and for the embedded PDF information
+%----------------------------------------------------------------------------------------
+
+\newcommand{\thesistitle}{Machine Learning to go \textit{nyoom}} % Your thesis title, this is used in the title and abstract
+\newcommand{\thesissubtitle}{Using Machine Learning to evaluate rowing training and predict training outcomes and performances}
+\newcommand{\degree}{B.A.(Mod.) in Computer Science} % Replace with your degree name, this is used in the title page and abstract
+\newcommand{\typeofthesis}{Final Year Project} % dissertation, Final Year Project, report, etc.
+\newcommand{\authorname}{Liam Junkermann} % Your name, this is used in the title page and PDF stuff
+%% Do not put your Student ID in the document, as TCD will not publish
+%% documents that contain both your name and your Student ID.
+\newcommand{\supervisor}{Dr.~Lucy Hederman} % replace with the name of your supervisor
+%\newcommand{\cosupervisor}{Dr Alex Lee} % replace with the name of your co-supervisor if you have one
+\newcommand{\keywords}{Data Analysis, Data Visualisation, Machine Learning, Personalisation, Human-Computer Interaction, Human Performance} % Replace with keywords for your thesis
+\newcommand{\school}{\href{https://www.tcd.ie/scss/}{School of Statistics and Computer Science}} % Your school's name and URL, this is used in the title page
+
+%% Comment out the next line if you don't want a department to appear
+% \newcommand{\department}{\href{http://researchgroup.university.com}{Department Name}} % Your research group's name and URL, this is used in the title page
+
+
+%% Language and font encodings
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+
+%% Bibliographical stuff
+% \usepackage[]{cite}
+% \usepackage[backend=biber,style=ieee,maxcitenames=2,mincitenames=1]{biblatex}
+%% Document size
+% include showframe as an option if you want to see the boxes
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
+% \setlength{\marginparwidth}{2cm}
+%% Useful packages
+% \usepackage{amsmath}
+% \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+% \usepackage[pdftex]{graphicx}
+% \usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{hyperxmp}
+% \usepackage{caption} % if no caption, no colon
+% \usepackage{sfmath} %use sans-serif in the maths sections too
+\usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
+% \usepackage{setspace} % to permit one-and-a-half or double spacing
+% \usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
+% \usepackage{tabularx,booktabs} % To thicken table lines
+% \usepackage{fancyhdr}
+% \usepackage{xcolor} % to get TCD colour on headings
+% \usepackage{rotating,floatpag}
+% \usepackage{wrapfig}
+% \usepackage{pdfpages}
+\usepackage{datetime}
+
+% \newcolumntype{Y}{>{\centering\arraybackslash}X}
+% \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
+
+% \definecolor{tcd_blue}{RGB}{5, 105, 185}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+\addto\extrasenglish{%
+  \renewcommand{\chapterautorefname}{Chapter}%
+}
+
+\renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
+
+\newcommand{\maxHR}{$\textnormal{HR}_{\text{max}}$}
+
+\usepackage{titlesec}
+
+\title{\thesistitle}
+\author{\authorname}
+
+
+\hypersetup{
+   pdftitle=\thesistitle, % Set the PDF's title to your title
+   pdfauthor=\authorname, % Set the PDF's author to your name
+   pdfkeywords=\keywords, % Set the PDF's keywords to your keywords
+   pdfsubject=\degree, % Set the PDF's keywords to your keywords
+   pdfinfo={
+     pdfsupervisor=\supervisor, % Set the PDF's supervisor to your supervisor
+     %pdfcosupervisor=\cosupervisor, % Set the PDF's cosupervisor to your cosupervisor if using
+   }
+}
+\begin{document}
+\pagestyle{empty}
+\include{preamble/declaration}
+\end{document}
